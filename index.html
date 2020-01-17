@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery简洁的砸金蛋抽奖代码 - 站长素材</title>
+
+<script src="lib/jquery-1.11.0.min.js" type="text/javascript"></script>
+
+<style type="text/css">
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    margin:0;
+    padding:0;
+    position:relative;
+}
+ul,li{
+    list-style: none;
+}
+.egg {
+	width: 100%;
+	height: 100%;
+	background: url(images/bg1.jpg) no-repeat center center;
+    background-size:cover;
+position: relative;
+
+}
+.egg ul li {
+	z-index: 999;
+}
+.eggList {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:150;
+}
+
+.eggList li {
+	float: left;
+	background: url(images/egg_1.png) no-repeat bottom;
+	width: 391px;
+	height: 268px;
+	cursor: pointer;
+	position: relative;
+}
+
+.eggList li span {
+	position: absolute;
+	width: 30px;
+	height: 60px;
+	left: 68px;
+	top: 64px;
+	color: #ff0;
+	font-size: 42px;
+	font-weight: bold
+}
+
+.eggList li.curr {
+	background: url(images/egg_2.png) no-repeat bottom;
+	cursor: default;
+	z-index: 300;
+}
+
+.eggList li.curr sup {
+position: absolute;
+background: url(images/img-4.png) no-repeat;
+width: 232px;
+height: 181px;
+top: -10px;
+left: 65px;
+z-index: 800;
+}
+
+.hammer {
+	width: 120px;
+	height: 124px;
+	position: absolute;
+	z-index: 150;
+	left: 350px;
+	top: -55px;
+}
+.jiangtai{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:100;
+    margin-top:175px;
+}
+.jiangtai img{
+    width:500px;
+}
+.resultTip {
+	position: absolute;
+	background: #ffc;
+	width: 148px;
+	padding: 6px;
+	z-index: 500;
+	top: 200px;
+	left: 10px;
+	color: #f60;
+	text-align: center;
+	overflow: hidden;
+	display: none;
+}
+
+.resultTip b {
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.title {
+	color: #fff;
+font-size: 28px;
+font-family: 微软雅黑;
+position: absolute;
+left: 100px;
+width: 600px;
+top: 50px;
+}
+.muji{
+position: absolute;
+bottom:50px;
+left:50%;
+    transform:translateX(-50%);
+
+	
+}
+.muji a{
+	font-size: 20px;
+    color: #f00;
+    width:10em;
+    height:3.5em;
+    line-height:3.5em;
+    display:inline-block;
+    border-radius:0.5em;
+    background:#fff;
+}
+.menu{
+	margin: 0 auto;
+width: 300px;
+background: #f8cb9c;
+height: 300px;
+padding: 10px;
+font-size: 12px;
+text-align: left;
+color: #9C5E00;
+}
+    
+.hammer .imgChuiZi {
+  position: absolute;
+  top: 0;
+  right: 30px;
+  width: 100%;
+  z-index: 10002;
+  -moz-transform-origin: bottom right;
+  -webkit-transform-origin: bottom right;
+  transform-origin: bottom 100%;
+  -moz-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+  transform: rotate(15deg);
+  -moz-animation: chuizi 1.5s ease 9999;
+  -webkit-animation: chuizi 1.5s ease 9999;
+  animation: chuizi 1.5s ease 9999;
+}
+@keyframes chuizi {
+  0% {
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+  30% {
+    -moz-transform: rotate(-24deg);
+    -ms-transform: rotate(-24deg);
+    -webkit-transform: rotate(-24deg);
+    transform: rotate(-24deg);
+  }
+  100% {
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+}
+@-webkit-keyframes chuizi {
+  0% {
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+  30% {
+    -moz-transform: rotate(-24deg);
+    -ms-transform: rotate(-24deg);
+    -webkit-transform: rotate(-24deg);
+    transform: rotate(-24deg);
+  }
+  100% {
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+}
+@-moz-keyframes chuizi {
+  0% {
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+  30% {
+    -moz-transform: rotate(-24deg);
+    -ms-transform: rotate(-24deg);
+    -webkit-transform: rotate(-24deg);
+    transform: rotate(-24deg);
+  }
+  100% {
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+}
+</style>
+
+<script>
+function  zadan(obj) { 
+	
+    $(obj).children("span").hide(); 
+    eggClick($(obj)); 
+};
+var dansui=1;
+    function eggClick(obj) {
+        if(dansui<1){
+            alert("蛋都碎了，请勿再敲，马上给你换一个！");
+            location.reload();
+            return;
+        }
+        var _this = obj;
+        $("#hammer").stop(true);
+        $(".hammer").css({"top":"-55px","left":"350px"});
+        setTimeout(function(){
+	        	   _this.addClass("curr"); //蛋碎效果 
+	                _this.find("sup").show(); //金花四溅
+	                $(".hammer").hide();//隐藏锤子 
+                    dansui=0;
+                    var item = [
+                        '苹果电脑',
+                        'iphone11',
+                        '华为笔记本',
+                        '小米电脑',
+                        '200元购物券',
+                        '谢谢惠顾奖'
+
+                    ];
+                    var index = Math.floor(Math.random()*item.length);
+                    var nb = item[index];
+                    $(".alert").html("恭喜您获得"+nb+",新的一年运气棒棒").fadeIn(1000);
+    //        if(text.indexOf("加息")>0){
+    //			  var img= document.getElementById("shan-img");
+    //		  }else if(text.indexOf("么么哒")>=0){
+    //			  var img= document.getElementById("sorry-img");
+    //		  }else if(text.indexOf("2元现金")>=0){
+    //			  var img= document.getElementById("xj-2");
+    //		  }
+//                    alert(nb);
+                
+	               /* $('.resultTip').css({display:'block',top:'280px',left:'315px',opacity:0}).animate({top: '240px',opacity:1},300,function(){
+	                dansui=0;
+	                    $("#result").html("恭喜，您中得50代金券"); 
+
+	    })*/
+		        },300)
+    
+		
+            	
+		
+} 
+</script>
+<!--<script type="text/javascript">-->
+ <!--$(function(){-->
+  <!--function show(){-->
+   <!--var mydate = new Date();-->
+   <!--var str = "" + mydate.getFullYear();-->
+   <!--str += (mydate.getMonth()+1);-->
+   <!--str += mydate.getDate();-->
+   <!--return str;-->
+  <!--}-->
+  <!--var t = 2017612;-->
+  <!--var m = show();-->
+     <!--alert(t);-->
+     <!--alert(m);-->
+  <!--if (m=t)-->
+  <!--{-->
+      <!--alert("Good day");-->
+  <!--}-->
+ <!--});-->
+<!--</script>-->
+</head>
+
+
+
+<body>
+<div class="alert" style="z-index:1000;font-size:40px;color:#fff;line-height:100px;display:none;border-radius:10px;background:rgba(0,0,0,0.5);text-align:center;width:800px;height:100px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+
+</div>
+<div class="egg">
+<div class="muji" style="text-align:center;">
+    <!--<img src="images/muji.png"><br>-->
+    <a style="text-decoration:none;" href="javascript:location.reload()">再来一次</a>
+</div>
+<ul class="eggList">
+	<p class="hammer" id="hammer"><img src="images/chuizi.png" class="imgChuiZi"></p>
+	<!--<p class="resultTip" id="resultTip"><b id="result"></b></p>-->
+	<li style="cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0);tap-highlight-color:rgba(0,0,0,0);" id="jindan" onClick="zadan(this)"></li>
+</ul>
+    <div class="jiangtai">
+        <img src="images/jiangping.png" alt=""/>
+    </div>
+</div>
+</body>
+</html>
