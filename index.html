@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>新年快乐</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+</head>
+<body>
+<!--第一个画面-->
+    <div class="background-yd">
+        <div class="new-year-text">
+            <span class="yuan"></span>
+            <!--<span class="dan"></span>-->
+            <!--<span class="kuai"></span>-->
+            <!--<span class="le"></span>-->
+        </div>
+        <p class="new-wish">
+            新年即将实现的愿望...
+        </p>
+        <a class="second-page" href="javascript:;">NEXT</a>
+    </div>
+<!--第二个画面-->
+    <div class="background-love">
+        <div class="love-ing">
+            <div class="bdl"></div>
+            <div class="bdr"></div>
+        </div>
+        <p class="wish-loving1">
+            祝所有的单身狗们
+        </p>
+        <p class="wish-loving2">都</p>
+        <p class="wish-loving3">
+            找到自己的爱情
+        </p>
+        <a class="three-page" href="javascript:;">NEXT</a>
+    </div>
+<!--第三个画面-->
+    <div class="more-money">
+        <div class="money-much">
+            <span class="n1">鼠</span>
+            <span class="n2">年</span>
+            <span class="n3">一</span>
+            <span class="n4">定</span>
+            <span class="n5">发</span>
+            <span class="n6">大</span>
+            <span class="n7">财</span>
+        </div>
+        <div id="leafContainer"></div>
+    </div>
+
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/awardRotate.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script>
+    $(document).ready(function(){
+        $(function(){
+
+            var inite={
+//                爱心元旦参数
+                imgNumber:0,//初始化图片后面的数字
+                anDelate:0,//初始化图片动画随机延迟时间
+                starX:0,//初始化每个星星的x位置
+                starY:0,//初始化每个星星的y位置
+                screenW:$(document).width(),
+                screenH:$(document).height(),
+//               团团圆圆元旦函数
+                beginHappy:function(){
+                    var byd=$(".background-yd");
+                    byd.addClass("active");
+                    for (var i=0;i<47;i++){
+                        imgNumber=Math.floor(Math.random()*3+1);
+                        anDelate=(Math.random()*(1)).toFixed(1);
+                        starX=Math.floor(Math.random()*this.screenW+1);//某个星星的随机X坐标值
+                        starY=Math.floor(Math.random()*this.screenH+1);//某个星星的随机Y坐标值
+                        // console.log(anDelate);
+                        var link=$("<img/>");
+    //                  imgNumber   随机星星
+                        link.attr("src","images/star"+3+".png").css("left",starX-19).css("top",starY-19);
+                        byd.append(link);
+                        byd.find("img").eq(i).css("animation","run 1s linear infinite"+" "+anDelate+"s");
+                        var starPoW=this.screenW/2-19;//中心轴X
+                        var starPoH=this.screenH/2-19;//中心点Y
+                        switch (i){
+    //                        135  150
+                            case 0:byd.find("img").eq(i).animate({top:starPoH-150,left:starPoW,opacity:1});break;
+                            case 1:byd.find("img").eq(i).animate({top:starPoH-147,left:starPoW-27,opacity:1});break;
+                            case 2:byd.find("img").eq(i).animate({top:starPoH-139,left:starPoW-56,opacity:1});break;
+                            case 3:byd.find("img").eq(i).animate({top:starPoH-126,left:starPoW-80,opacity:1});break;
+                            case 4:byd.find("img").eq(i).animate({top:starPoH-111,left:starPoW-101,opacity:1});break;
+                            case 5:byd.find("img").eq(i).animate({top:starPoH-89,left:starPoW-121,opacity:1});break;
+                            case 6:byd.find("img").eq(i).animate({top:starPoH-66,left:starPoW-134,opacity:1});break;
+                            case 7:byd.find("img").eq(i).animate({top:starPoH-43,left:starPoW-144,opacity:1});break;
+                            case 8:byd.find("img").eq(i).animate({top:starPoH-20,left:starPoW-149,opacity:1});break;
+                            case 9:byd.find("img").eq(i).animate({top:starPoH+5,left:starPoW-150,opacity:1});break;
+                            case 10:byd.find("img").eq(i).animate({top:starPoH+25,left:starPoW-148,opacity:1});break;
+                            case 11:byd.find("img").eq(i).animate({top:starPoH+43,left:starPoW-144,opacity:1});break;
+                            case 12:byd.find("img").eq(i).animate({top:starPoH+66,left:starPoW-135,opacity:1});break;
+                            case 13:byd.find("img").eq(i).animate({top:starPoH+89,left:starPoW-121,opacity:1});break;
+                            case 14:byd.find("img").eq(i).animate({top:starPoH+111,left:starPoW-101,opacity:1});break;
+                            case 15:byd.find("img").eq(i).animate({top:starPoH+128,left:starPoW-79,opacity:1});break;
+                            case 16:byd.find("img").eq(i).animate({top:starPoH+140,left:starPoW-56,opacity:1});break;
+                            case 17:byd.find("img").eq(i).animate({top:starPoH+148,left:starPoW-28,opacity:1});break;
+                            case 18:byd.find("img").eq(i).animate({top:starPoH+150,left:starPoW,opacity:1});break;
+                            case 19:byd.find("img").eq(i).animate({top:starPoH+147,left:starPoW+27,opacity:1});break;
+                            case 20:byd.find("img").eq(i).animate({top:starPoH+139,left:starPoW+56,opacity:1});break;
+                            case 21:byd.find("img").eq(i).animate({top:starPoH+126,left:starPoW+80,opacity:1});break;
+                            case 22:byd.find("img").eq(i).animate({top:starPoH+111,left:starPoW+101,opacity:1});break;
+                            case 23:byd.find("img").eq(i).animate({top:starPoH+89,left:starPoW+121,opacity:1});break;
+                            case 24:byd.find("img").eq(i).animate({top:starPoH+66,left:starPoW+134,opacity:1});break;
+                            case 25:byd.find("img").eq(i).animate({top:starPoH+43,left:starPoW+144,opacity:1});break;
+                            case 26:byd.find("img").eq(i).animate({top:starPoH+20,left:starPoW+149,opacity:1});break;
+                            case 27:byd.find("img").eq(i).animate({top:starPoH,left:starPoW+150,opacity:1});break;
+                            case 28:byd.find("img").eq(i).animate({top:starPoH-25,left:starPoW+148,opacity:1});break;
+                            case 29:byd.find("img").eq(i).animate({top:starPoH-43,left:starPoW+144,opacity:1});break;
+                            case 30:byd.find("img").eq(i).animate({top:starPoH-66,left:starPoW+135,opacity:1});break;
+                            case 31:byd.find("img").eq(i).animate({top:starPoH-89,left:starPoW+121,opacity:1});break;
+                            case 32:byd.find("img").eq(i).animate({top:starPoH-111,left:starPoW+101,opacity:1});break;
+                            case 33:byd.find("img").eq(i).animate({top:starPoH-128,left:starPoW+79,opacity:1});break;
+                            case 34:byd.find("img").eq(i).animate({top:starPoH-140,left:starPoW+56,opacity:1});break;
+                            case 35:byd.find("img").eq(i).animate({top:starPoH-148,left:starPoW+28,opacity:1});break;
+                            case 36:byd.find("img").eq(i).animate({top:starPoH-150,left:starPoW,opacity:1});break;
+                        }
+                    }
+                    var timer1=setTimeout(function(){
+                        $(".new-year-text>span").addClass("active");
+                    },2500);
+                    var  timer2=setTimeout(function(){
+                        $(".new-wish").fadeIn(2000);
+                        $(".second-page").fadeIn(2000);
+                    },3500);
+//                    点击第一个next
+                    $(".second-page").on("click",function(){
+                        for(var j=0;j<47;j++){
+                            starX=Math.floor(Math.random()*inite.screenW+1);//某个星星的随机X坐标值
+                            starY=Math.floor(Math.random()*inite.screenH+1);//某个星星的随机Y坐标值
+                            byd.find("img").eq(j).animate({top:starY-19,left:starX-19,opacity:0});
+                            $(".new-year-text>span").removeClass("active");
+                        }
+                        $(".new-wish").fadeOut(1000);
+                        $(".second-page").fadeOut(1000);
+                        var tm=setTimeout(function(){
+                            $(".background-love").fadeIn(1000);
+                            $(".wish-loving1").addClass("active");
+                            $(".wish-loving2").addClass("active");
+                            $(".wish-loving3").addClass("active");
+                        },2300);
+                        var tm2=setTimeout(function(){
+                            $(".wish-loving1").fadeOut(500);
+                            $(".wish-loving2").fadeOut(500);
+                            $(".wish-loving3").fadeOut(500);
+                        },9000);
+                        var tm3=setTimeout(function(){
+                            inite.beginLove();
+                        },9000)
+                    });
+                },
+//                爱心元旦函数
+                beginLove:function(){
+                    var bdl=$(".background-love");
+                    for (var i=0;i<47;i++){
+                        imgNumber=Math.floor(Math.random()*3+1);
+                        anDelate=(Math.random()*(1)).toFixed(1);
+                        starX=Math.floor(Math.random()*this.screenW+1);//某个星星的随机X坐标值
+                        starY=Math.floor(Math.random()*this.screenH+1);//某个星星的随机Y坐标值
+                        // console.log(anDelate);
+                        var link=$("<img/>");
+                        //                  ("src","images/star"+imgNumber+".png")随机星星
+                        link.attr("src","images/star"+1+".png").css("left",starX-19).css("top",starY-19);
+                        bdl.append(link);
+                        bdl.find("img").eq(i).css("animation","run 1s linear infinite"+" "+anDelate+"s");
+                        var starPoW=this.screenW/2-19;//中心轴X
+                        var starPoH=this.screenH/2-19;//中心点Y
+                        switch (i){
+                                //                        135  150
+                            case 0:bdl.find("img").eq(i).animate({top:starPoH-74,left:starPoW,opacity:1});break;
+                            case 1:bdl.find("img").eq(i).animate({top:starPoH-94,left:starPoW-10,opacity:1});break;
+                            case 2:bdl.find("img").eq(i).animate({top:starPoH-112,left:starPoW-24,opacity:1});break;
+                            case 3:bdl.find("img").eq(i).animate({top:starPoH-125,left:starPoW-41,opacity:1});break;
+                            case 4:bdl.find("img").eq(i).animate({top:starPoH-133,left:starPoW-59,opacity:1});break;
+                            case 5:bdl.find("img").eq(i).animate({top:starPoH-134,left:starPoW-78,opacity:1});break;
+                            case 6:bdl.find("img").eq(i).animate({top:starPoH-131,left:starPoW-97,opacity:1});break;
+                            case 7:bdl.find("img").eq(i).animate({top:starPoH-121,left:starPoW-113,opacity:1});break;
+                            case 8:bdl.find("img").eq(i).animate({top:starPoH-108,left:starPoW-129,opacity:1});break;
+                            case 9:bdl.find("img").eq(i).animate({top:starPoH-89,left:starPoW-140,opacity:1});break;
+                            case 10:bdl.find("img").eq(i).animate({top:starPoH-71,left:starPoW-146,opacity:1});break;
+                            case 11:bdl.find("img").eq(i).animate({top:starPoH-53,left:starPoW-148,opacity:1});break;
+                            case 12:bdl.find("img").eq(i).animate({top:starPoH-32,left:starPoW-150,opacity:1});break;
+                            case 13:bdl.find("img").eq(i).animate({top:starPoH-12,left:starPoW-146,opacity:1});break;
+                            case 14:bdl.find("img").eq(i).animate({top:starPoH+4,left:starPoW-138,opacity:1});break;
+                            case 15:bdl.find("img").eq(i).animate({top:starPoH+20,left:starPoW-126,opacity:1});break;
+                            case 16:bdl.find("img").eq(i).animate({top:starPoH+34,left:starPoW-110,opacity:1});break;
+                            case 17:bdl.find("img").eq(i).animate({top:starPoH+48,left:starPoW-91,opacity:1});break;
+                            case 18:bdl.find("img").eq(i).animate({top:starPoH+59,left:starPoW-73,opacity:1});break;
+                            case 19:bdl.find("img").eq(i).animate({top:starPoH+71,left:starPoW-54,opacity:1});break;
+                            case 20:bdl.find("img").eq(i).animate({top:starPoH+83,left:starPoW-40,opacity:1});break;
+                            case 21:bdl.find("img").eq(i).animate({top:starPoH+96,left:starPoW-26,opacity:1});break;
+                            case 22:bdl.find("img").eq(i).animate({top:starPoH+109,left:starPoW-15,opacity:1});break;
+                            case 23:bdl.find("img").eq(i).animate({top:starPoH+119,left:starPoW-6,opacity:1});break;
+                            case 24:bdl.find("img").eq(i).animate({top:starPoH+134,left:starPoW,opacity:1});break;
+                            case 25:bdl.find("img").eq(i).animate({top:starPoH+119,left:starPoW+8,opacity:1});break;
+                            case 26:bdl.find("img").eq(i).animate({top:starPoH+107,left:starPoW+18,opacity:1});break;
+                            case 27:bdl.find("img").eq(i).animate({top:starPoH+96,left:starPoW+28,opacity:1});break;
+                            case 28:bdl.find("img").eq(i).animate({top:starPoH+83,left:starPoW+42,opacity:1});break;
+                            case 29:bdl.find("img").eq(i).animate({top:starPoH+69,left:starPoW+58,opacity:1});break;
+                            case 30:bdl.find("img").eq(i).animate({top:starPoH+56,left:starPoW+75,opacity:1});break;
+                            case 31:bdl.find("img").eq(i).animate({top:starPoH+44,left:starPoW+94,opacity:1});break;
+                            case 32:bdl.find("img").eq(i).animate({top:starPoH+31,left:starPoW+112,opacity:1});break;
+                            case 33:bdl.find("img").eq(i).animate({top:starPoH+17,left:starPoW+127,opacity:1});break;
+                            case 34:bdl.find("img").eq(i).animate({top:starPoH-2,left:starPoW+139,opacity:1});break;
+                            case 35:bdl.find("img").eq(i).animate({top:starPoH-24,left:starPoW+148,opacity:1});break;
+                            case 36:bdl.find("img").eq(i).animate({top:starPoH-46,left:starPoW+150,opacity:1});break;
+                            case 37:bdl.find("img").eq(i).animate({top:starPoH-66,left:starPoW+147,opacity:1});break;
+                            case 38:bdl.find("img").eq(i).animate({top:starPoH-83,left:starPoW+143,opacity:1});break;
+                            case 39:bdl.find("img").eq(i).animate({top:starPoH-102,left:starPoW+131,opacity:1});break;
+                            case 40:bdl.find("img").eq(i).animate({top:starPoH-118,left:starPoW+119,opacity:1});break;
+                            case 41:bdl.find("img").eq(i).animate({top:starPoH-130,left:starPoW+99,opacity:1});break;
+                            case 42:bdl.find("img").eq(i).animate({top:starPoH-134,left:starPoW+81,opacity:1});break;
+                            case 43:bdl.find("img").eq(i).animate({top:starPoH-132,left:starPoW+58,opacity:1});break;
+                            case 44:bdl.find("img").eq(i).animate({top:starPoH-124,left:starPoW+39,opacity:1});break;
+                            case 45:bdl.find("img").eq(i).animate({top:starPoH-112,left:starPoW+23,opacity:1});break;
+                            case 46:bdl.find("img").eq(i).animate({top:starPoH-96,left:starPoW+10,opacity:1});break;
+                           }
+                    }
+                    var timer1=setTimeout(function(){
+                        $(".bdl").addClass("active");
+                        $(".bdr").addClass("active");
+                        $(".three-page").addClass("active");
+                    },3500);
+                    $(".three-page").on("click",function(){
+                        $(".more-money").fadeIn(500);
+                        $(".money-much>span").addClass("active");
+                        var timer3=setTimeout(function(){
+                            $(".money-much").fadeOut(500);
+                            inite.snowGoing();
+                        },4000);
+
+                    })
+                },
+                snowGoing:function(){
+                    //            下雪
+                    //    下雪代码
+
+                    const NUMBER_OF_LEAVES = 100;
+                    function init(die){
+                        var container = document.getElementById(die);
+                        for (var i = 0; i < NUMBER_OF_LEAVES; i++)
+                        {
+                            container.appendChild(createALeaf());
+                        }
+                    }
+                    function randomInteger(low, high){
+                        return low + Math.floor(Math.random() * (high - low));
+                    }
+                    function randomFloat(low, high){
+                        return low + Math.random() * (high - low);
+                    }
+                    function pixelValue(value){
+                        return value + 'px';
+                    }
+                    function durationValue(value){
+                        return value + 's';
+                    }
+                    function createALeaf() {
+                        var leafDiv = document.createElement('div');
+                        var image = document.createElement('img');
+                        image.src ='images/'+'m' + randomInteger(1, 6) + '.png';
+                        leafDiv.style.top = "-100px";
+                        leafDiv.style.left = pixelValue(randomInteger(0, 1000));
+                        var spinAnimationName = (Math.random() < 0.5) ? 'clockwiseSpin' : 'counterclockwiseSpinAndFlip';
+                        leafDiv.style.webkitAnimationName = 'fade, drop';
+                        image.style.webkitAnimationName = spinAnimationName;
+                        var fadeAndDropDuration = durationValue(randomFloat(5, 11));
+                        var spinDuration = durationValue(randomFloat(4, 8));
+                        leafDiv.style.webkitAnimationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
+                        var leafDelay = durationValue(randomFloat(0, 5));
+                        leafDiv.style.webkitAnimationDelay = leafDelay + ', ' + leafDelay;
+                        image.style.webkitAnimationDuration = spinDuration;
+                        leafDiv.appendChild(image);
+                        return leafDiv;
+                    }
+                    //		window.addEventListener('load', init);
+                    //                       下雪
+                    init('leafContainer');
+                }
+
+
+
+            };
+            inite.beginHappy();
+
+
+
+        });
+    });
+</script>
+</body>
+</html>

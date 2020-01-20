@@ -1,0 +1,32 @@
+*{margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+img{max-width: 100%}
+body {
+    font: 14px "microsoft yahei", Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+button,input:focus{
+    outline: none;
+}
+ul,li,ol,p,h1,h2,h3,h4,h5,h6,dl,dt,dd,img,div {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style: none;
+}
+a:link,a:visited,a:hover,a{text-decoration: none;}
+.rt{float: right;}
+.lf{float: left;}
+html { font-size:533.3% !important; }
+@media only screen and (min-width: 360px){
+    html { font-size:600% !important; }
+}
+@media only screen and (min-width: 375px){
+    html { font-size:625% !important; }
+}
+@media only screen and (min-width: 414px){
+    html { font-size:690% !important; }
+}
